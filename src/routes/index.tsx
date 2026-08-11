@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Book stays, flights and winter trips with Xploredestination. Last minute deals, popular destinations and tailored travel experiences.",
+          "Discover new locations",
       },
       { property: "og:title", content: "Xploredestination — Discover, Explore, Go" },
       {
