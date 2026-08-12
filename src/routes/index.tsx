@@ -9,14 +9,12 @@ export const Route = createFileRoute("/")({
       { title: "Xploredestination — Discover, Explore, Go" },
       {
         name: "description",
-        content:
-          "Discover new locations",
+        content: "Discover new locations",
       },
       { property: "og:title", content: "Xploredestination — Discover, Explore, Go" },
       {
         property: "og:description",
-        content:
-          "Book stays, flights and winter trips with Xploredestination. Last minute deals and tailored travel experiences.",
+        content: "Xploredestination — Discover, Explore, Go",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
