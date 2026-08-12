@@ -42,7 +42,7 @@ export function PopularSection() {
   const [singapore, australia, thailand] = destinations as [Destination, Destination, Destination];
 
   return (
-    <section className="px-6 py-20 sm:px-10">
+    <section className="px-6  py-20 sm:px-10">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[320px_1fr]">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
@@ -63,7 +63,7 @@ export function PopularSection() {
             image={singapore.image}
             name={singapore.name}
             height={1100}
-            className="h-80 sm:h-[26rem]"
+            className="h-80 sm:h-104"
           />
           <div className="grid gap-5">
             <Card
@@ -71,14 +71,14 @@ export function PopularSection() {
               image={australia.image}
               name={australia.name}
               height={620}
-              className="h-40 sm:h-[12.5rem]"
+              className="h-40 sm:h-50"
             />
             <Card
               slug={thailand.slug}
               image={thailand.image}
               name={thailand.name}
               height={620}
-              className="h-40 sm:h-[12.5rem]"
+              className="h-40 sm:h-50"
             />
           </div>
         </div>

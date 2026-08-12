@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Loader2 } from "lucide-react";
 import { apiUrl } from "@/config";
 
@@ -191,8 +192,10 @@ export function DealsSection() {
           {!loading &&
             !error &&
             locations.map((location) => (
-              <article
+              <Link
                 key={location.uuid}
+                to="/locations/$uuid"
+                params={{ uuid: location.uuid }}
                 className="overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]"
               >
                 <div className="relative">
@@ -215,7 +218,7 @@ export function DealsSection() {
                     {!location.is_open_to_public && " · Closed to visitors"}
                   </p>
                 </div>
-              </article>
+              </Link>
             ))}
         </div>
       </div>

@@ -120,15 +120,17 @@ function DestinationPage() {
           </div>
         </div>
         <div className="mt-10 mx-auto max-w-6xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {(destinationlocation ?? []).map((destionation) => (
-            <article
-              key={destionation.name}
+          {(destinationlocation ?? []).map((destination) => (
+            <Link
+              key={destination.uuid}
+              to="/locations/$uuid"
+              params={{ uuid: destination.uuid }}
               className="overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]"
             >
               <div className="relative">
                 <img
-                  src={`https://wild-horizons-jlcx.onrender.com${destionation.image}`}
-                  alt={destionation.name}
+                  src={`https://wild-horizons-jlcx.onrender.com${destination.image}`}
+                  alt={destination.name}
                   loading="lazy"
                   width={800}
                   height={560}
@@ -136,10 +138,10 @@ function DestinationPage() {
                 />
               </div>
               <div className="space-y-2 p-5">
-                <h3 className="font-semibold">{destionation.name}</h3>
-                <p className="text-sm text-muted-foreground">{destionation.country}</p>
+                <h3 className="font-semibold">{destination.name}</h3>
+                <p className="text-sm text-muted-foreground">{destination.country}</p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>

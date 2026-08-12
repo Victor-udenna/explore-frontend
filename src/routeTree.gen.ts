@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations/$slug'
+import { Route as LocationsUuidRouteImport } from './routes/locations/$uuid'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
   path: '/destinations/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsUuidRoute = LocationsUuidRouteImport.update({
+  id: '/locations/$uuid',
+  path: '/locations/$uuid',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
+  '/locations/$uuid': typeof LocationsUuidRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
+  '/locations/$uuid': typeof LocationsUuidRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
+  '/locations/$uuid': typeof LocationsUuidRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/destinations/$slug'
+  fullPaths: '/' | '/destinations/$slug' | '/locations/$uuid'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/destinations/$slug'
-  id: '__root__' | '/' | '/destinations/$slug'
+  to: '/' | '/destinations/$slug' | '/locations/$uuid'
+  id: '__root__' | '/' | '/destinations/$slug' | '/locations/$uuid'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DestinationsSlugRoute: typeof DestinationsSlugRoute
+  LocationsUuidRoute: typeof LocationsUuidRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DestinationsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/$uuid': {
+      id: '/locations/$uuid'
+      path: '/locations/$uuid'
+      fullPath: '/locations/$uuid'
+      preLoaderRoute: typeof LocationsUuidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DestinationsSlugRoute: DestinationsSlugRoute,
+  LocationsUuidRoute: LocationsUuidRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
